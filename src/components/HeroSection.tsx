@@ -9,12 +9,12 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
         style={{ 
-          backgroundImage: "url('https://images.unsplash.com/photo-1504893524553-b855bce32c67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmVsYXglMjByaXZlcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1920&q=80')",
-          backgroundPosition: "center 60%"
+          backgroundImage: "url('https://images.unsplash.com/photo-1516016219524-a3937cc00495?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmlzaGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=1920&q=80')",
+          backgroundPosition: "center center"
         }}
       >
         {/* Overlay for better text visibility */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
       
       {/* Content */}

@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 60 33% 94%; /* Light beige background */
-    --foreground: 43 37% 10%; /* Dark text for readability */
+    --background: 196 33% 94%; /* Azul claro suave como água */
+    --foreground: 200 37% 15%; /* Azul escuro profundo para texto */
 
-    --card: 0 0% 100%;
-    --card-foreground: 43 37% 10%;
+    --card: 180 20% 99%;
+    --card-foreground: 200 37% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 43 37% 10%;
+    --popover: 180 20% 99%;
+    --popover-foreground: 200 37% 15%;
 
-    --primary: 126 29% 74%; /* Green color */
-    --primary-foreground: 43 47% 10%;
+    --primary: 165 40% 40%; /* Verde-azulado como água de lago */
+    --primary-foreground: 180 20% 99%;
 
-    --secondary: 60 33% 94%; /* Light beige */
-    --secondary-foreground: 43 37% 10%;
+    --secondary: 95 28% 75%; /* Verde suave como vegetação */
+    --secondary-foreground: 200 37% 15%;
 
-    --muted: 126 10% 90%;
-    --muted-foreground: 43 20% 40%;
+    --muted: 196 15% 85%;
+    --muted-foreground: 200 20% 40%;
 
-    --accent: 43 95% 38%; /* Brown accent */
-    --accent-foreground: 60 33% 98%;
+    --accent: 33 70% 52%; /* Marrom amadeirado como varas de pesca */
+    --accent-foreground: 180 20% 99%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 180 20% 99%;
 
-    --border: 126 10% 80%;
-    --input: 126 10% 80%;
-    --ring: 126 29% 74%;
+    --border: 196 15% 80%;
+    --input: 196 15% 80%;
+    --ring: 165 40% 40%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 196 20% 95%;
+    --sidebar-foreground: 200 20% 26%;
+    --sidebar-primary: 165 40% 40%;
+    --sidebar-primary-foreground: 180 20% 99%;
+    --sidebar-accent: 196 15% 90%;
+    --sidebar-accent-foreground: 200 20% 26%;
+    --sidebar-border: 196 15% 85%;
+    --sidebar-ring: 165 40% 40%;
   }
 
   * {
@@ -52,18 +51,40 @@
   }
 
   body {
-    @apply bg-pousada-beige text-foreground font-sans;
+    @apply bg-background text-foreground font-sans;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M95,5 Q97,7 95,9 L9,95 Q7,97 5,95 L5,5 Q5,5 5,5 Z' fill='%23e6f0f2' fill-opacity='0.4'/%3E%3C/svg%3E");
+    background-size: 50px 50px;
   }
   
   .btn-primary {
-    @apply bg-pousada-brown text-white font-semibold px-6 py-3 rounded-md transition-all hover:bg-amber-600 shadow-md;
+    @apply bg-accent text-white font-semibold px-6 py-3 rounded-md transition-all hover:opacity-90 shadow-md;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-serif font-semibold mb-6 text-center;
+    @apply text-3xl md:text-4xl font-serif font-semibold mb-6 text-center text-primary;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
   }
   
   .section-container {
     @apply max-w-7xl mx-auto px-4 py-16 md:py-24;
+  }
+  
+  /* Elementos adicionais para tema de pescaria e natureza */
+  .water-divider {
+    height: 35px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%235aa9bd'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%235aa9bd'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%235aa9bd'%3E%3C/path%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 2rem 0;
+  }
+  
+  .nature-card {
+    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all;
+    border-left: 4px solid hsl(var(--primary));
+  }
+  
+  .fishing-highlight {
+    @apply font-serif italic text-accent;
   }
 }

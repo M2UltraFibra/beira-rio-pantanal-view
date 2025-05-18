@@ -114,10 +114,11 @@ export default {
 				'slide-in-right': 'slide-in-right 0.3s ease-out'
 			},
 			fontFamily: {
-				sans: ['Montserrat', 'sans-serif'],
-				serif: ['Playfair Display', 'serif']
+				sans: ['Montserrat', 'system-ui', 'sans-serif'],
+				serif: ['Playfair Display', 'Georgia', 'serif']
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

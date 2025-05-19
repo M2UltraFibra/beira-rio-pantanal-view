@@ -13,11 +13,11 @@ const Footer = () => {
             <p className="text-white/80">
               O seu refúgio natural às margens do Rio Miranda, no coração do Pantanal Sul-Mato-Grossense.
             </p>
-            <img
-            src="/public/logo.png" // Substitua pelo caminho correto do seu logo
-            alt="Logo Pousadas do Início"
-            className="mx-auto w-32 h-auto"
-            />
+          <img
+            src={logoPath}
+            alt="Pousadas do Inacio Logo"
+            className="mx-auto w-32 h-auto drop-shadow-[0_1px_2px_rgba(255,215,0,0.8)]"
+          />
           </div>
           
           <div>

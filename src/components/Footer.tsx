@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold mb-4 font-serif">Pousada Beira Rio Miranda</h3>
+            <h3 className="text-xl font-semibold mb-4 font-serif">Pousadas do Inacio</h3>
             <p className="text-white/80">
               O seu refúgio natural às margens do Rio Miranda, no coração do Pantanal Sul-Mato-Grossense.
             </p>
@@ -80,7 +80,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-white/20 mt-8 pt-6 text-sm text-center text-white/70">
-          <p>&copy; {currentYear} Pousada Beira Rio Miranda. Todos os direitos reservados.</p>
+          <p>&copy; {currentYear} Pousadas do Inacio. Todos os direitos reservados.</p> - Desenvolvido por <a href="meuphilim@gmail.com" className="underline hover:text-white">Meuphilim</a>
         </div>
       </div>
     </footer>

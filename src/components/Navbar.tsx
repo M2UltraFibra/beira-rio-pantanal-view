@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Hotel } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,10 +38,14 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#"
-          className={`text-xl font-serif font-bold ${
+          className={`text-xl font-serif font-bold flex items-center ${
             isScrolled ? "text-gray-800" : "text-white"
           }`}
         >
+          <Hotel 
+            className={`mr-2 ${isScrolled ? "text-gray-800" : "text-white"}`} 
+            size={28} 
+          />
           Pousada Beira Rio
         </a>
 

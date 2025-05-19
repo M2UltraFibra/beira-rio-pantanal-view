@@ -11,12 +11,14 @@ const ContactSection = () => {
     name: "",
     email: "",
     phone: "",
-    message: ""
+    message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -26,13 +28,15 @@ const ContactSection = () => {
       const response = await fetch("https://formspree.io/f/mvgaleko", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        toast.success("Mensagem enviada com sucesso! Entraremos em contato em breve.");
+        toast.success(
+          "Mensagem enviada com sucesso! Entraremos em contato em breve."
+        );
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
         toast.error("Ops! Algo deu errado. Por favor, tente novamente.");
@@ -47,7 +51,8 @@ const ContactSection = () => {
     <section id="contact" className="section-container bg-pousada-green/10">
       <h2 className="section-title">Entre em Contato</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
-        Estamos à disposição para tirar suas dúvidas, receber suas sugestões ou agendar sua reserva
+        Estamos à disposição para tirar suas dúvidas, receber suas sugestões ou
+        agendar sua reserva
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
@@ -113,35 +118,43 @@ const ContactSection = () => {
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-xl font-semibold mb-2 font-serif">Localização</h3>
+            <h3 className="text-xl font-semibold mb-2 font-serif">
+              Localização
+            </h3>
             <p className="text-muted-foreground">
-              Estrada Pantaneira, KM 25<br />
-              Beira do Rio Miranda<br />
-              Miranda - MS, Brasil<br />
+              Estrada Pantaneira, KM 25
+              <br />
+              Beira do Rio Miranda
+              <br />
+              Miranda - MS, Brasil
+              <br />
               CEP: 79380-000
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-2 font-serif">Contato Direto</h3>
+            <h3 className="text-xl font-semibold mb-2 font-serif">
+              Contato Direto
+            </h3>
             <p className="text-muted-foreground">
-              reservas@pousadabeiramirada.com.br<br />
-              +55 (67) 99999-9999<br />
+              reservas@pousadabeiramirada.com.br
+              <br />
+              +55 (67) 99999-9999
+              <br />
               Horário de atendimento: 8h às 20h
             </p>
           </div>
 
           <div className="rounded-lg overflow-hidden h-64 shadow-md">
-  <iframe
-    title="Mapa de Localização"
-    className="w-full h-full border-0"
-    loading="lazy"
-    allowFullScreen
-    referrerPolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15364.694764129853!2d-56.09533076598798!3d-20.763486681206903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1716114800000!5m2!1spt-BR!2sbr"
-  ></iframe>
-</div>
-
+            <iframe
+              title="Mapa de Localização"
+              className="w-full h-full border-0"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15364.694764129853!2d-56.09533076598798!3d-20.763486681206903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1716114800000!5m2!1spt-BR!2sbr"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

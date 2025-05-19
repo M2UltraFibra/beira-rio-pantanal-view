@@ -3,6 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const logoPath = `${import.meta.env.BASE_URL}logo.png`;
 
   return (
     <footer className="bg-pousada-green/90 text-white py-8">

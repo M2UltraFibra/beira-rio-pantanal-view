@@ -67,8 +67,8 @@ const Footer = () => {
                 </svg>
               </a>
               <a href="#" aria-label="TikTok" className="hover:text-white/70 transition-colors">
-                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M21 8.5v2.1a7.5 7.5 0 0 1-5.5-2.1v6.6a6.5 6.5 0 1 1-6.5-6.5 6.6 6.6 0 0 1 1.1.1v2.2a4.5 4.5 0 1 0 4.5 4.5V2h2.2a5.5 5.5 0 0 0 4.2 2v2.5z"/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 015.4.51.1.1 0 14.6 2h2.34A4.312 4.312 0 0119 5.4v2.34a.1.1 0 001.49-.18A4.281 4.281 0 0123 4.9v-2h-1.18a5.51 5.51 0 01-5.22 2.92zM16.6 9.22v4.14a4.27 4.27 0 11-4.16-4.37c.22 0 .43.02.65.05v2.21c-2.36-.36-2.49 1.1-2.49 1.4v4.31a4.294 4.294 0 01-4.3 4.3A4.292 4.292 0 011 17.24a4.3 4.3 0 017.2-3.18V9.22a1.898 1.898 0 00-.1-.63h2.35a5.808 5.808 0 015.74 3.25 5.92 5.92 0 01.34 2h2.07a7.46 7.46 0 00-2-5.8 7.369 7.369 0 00-6.43-2.63v1.89c2.49.46 4.9 1.19 6.43 2.63z"/>
                 </svg>
               </a>
               <a href="#" aria-label="YouTube" className="hover:text-white/70 transition-colors">

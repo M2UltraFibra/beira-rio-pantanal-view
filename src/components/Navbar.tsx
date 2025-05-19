@@ -25,6 +25,9 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Usar import.meta.env.BASE_URL para garantir o caminho correto no GitHub Pages
+  const logoPath = `${import.meta.env.BASE_URL}logo.png`;
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,7 +45,7 @@ const Navbar = () => {
           }`}
         >
           <img 
-            src="/logo.png" 
+            src={logoPath} 
             alt="Pousada Beira Rio Logo" 
             className="h-10 mr-2"
           />

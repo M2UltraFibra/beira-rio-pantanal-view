@@ -14,6 +14,7 @@ const Footer = () => {
             <p className="text-white/80">
               O seu refúgio natural às margens do Rio Miranda, no coração do Pantanal Sul-Mato-Grossense.
             </p>
+            <br/>
           <img
             src={logoPath}
             alt="Pousadas do Inacio Logo"

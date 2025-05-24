@@ -7,44 +7,44 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Fundo muito claro para contraste */
-    --foreground: 45 15% 15%; /* Texto muito escuro para contraste */
+    --background: 196 33% 94%; /* Azul claro suave como água */
+    --foreground: 200 37% 15%; /* Azul escuro profundo para texto */
 
-    --card: 0 0% 100%;
-    --card-foreground: 45 15% 15%;
+    --card: 180 20% 99%;
+    --card-foreground: 200 37% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 45 15% 15%;
+    --popover: 180 20% 99%;
+    --popover-foreground: 200 37% 15%;
 
-    --primary: 45 25% 25%; /* Marrom escuro para elementos principais */
-    --primary-foreground: 0 0% 98%;
+    --primary: 165 40% 40%; /* Verde-azulado como água de lago */
+    --primary-foreground: 180 20% 99%;
 
-    --secondary: 45 20% 85%; /* Bege claro para elementos secundários */
-    --secondary-foreground: 45 15% 15%;
+    --secondary: 95 28% 75%; /* Verde suave como vegetação */
+    --secondary-foreground: 200 37% 15%;
 
-    --muted: 45 10% 90%;
-    --muted-foreground: 45 15% 40%;
+    --muted: 196 15% 85%;
+    --muted-foreground: 200 20% 40%;
 
-    --accent: 33 70% 45%; /* Marrom amadeirado mais escuro para melhor contraste */
-    --accent-foreground: 0 0% 98%;
+    --accent: 33 70% 52%; /* Marrom amadeirado como varas de pesca */
+    --accent-foreground: 180 20% 99%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 180 20% 99%;
 
-    --border: 45 15% 75%;
-    --input: 45 15% 85%;
-    --ring: 45 25% 25%;
+    --border: 196 15% 80%;
+    --input: 196 15% 80%;
+    --ring: 165 40% 40%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 45 20% 95%;
-    --sidebar-foreground: 45 15% 20%;
-    --sidebar-primary: 45 25% 25%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 45 15% 90%;
-    --sidebar-accent-foreground: 45 15% 20%;
-    --sidebar-border: 45 15% 80%;
-    --sidebar-ring: 45 25% 25%;
+    --sidebar-background: 196 20% 95%;
+    --sidebar-foreground: 200 20% 26%;
+    --sidebar-primary: 165 40% 40%;
+    --sidebar-primary-foreground: 180 20% 99%;
+    --sidebar-accent: 196 15% 90%;
+    --sidebar-accent-foreground: 200 20% 26%;
+    --sidebar-border: 196 15% 85%;
+    --sidebar-ring: 165 40% 40%;
   }
 
   * {
@@ -52,186 +52,132 @@
   }
 
   body {
-    @apply text-foreground font-sans;
-    background-color: #555232;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 1000'%3E%3Cg %3E%3Ccircle fill='%23555232' cx='50' cy='0' r='50'/%3E%3Cg fill='%235d5a37' %3E%3Ccircle cx='0' cy='50' r='50'/%3E%3Ccircle cx='100' cy='50' r='50'/%3E%3C/g%3E%3Ccircle fill='%2365623b' cx='50' cy='100' r='50'/%3E%3Cg fill='%236d6940' %3E%3Ccircle cx='0' cy='150' r='50'/%3E%3Ccircle cx='100' cy='150' r='50'/%3E%3C/g%3E%3Ccircle fill='%23757145' cx='50' cy='200' r='50'/%3E%3Cg fill='%237d7a4a' %3E%3Ccircle cx='0' cy='250' r='50'/%3E%3Ccircle cx='100' cy='250' r='50'/%3E%3C/g%3E%3Ccircle fill='%2385824f' cx='50' cy='300' r='50'/%3E%3Cg fill='%238d8a54' %3E%3Ccircle cx='0' cy='350' r='50'/%3E%3Ccircle cx='100' cy='350' r='50'/%3E%3C/g%3E%3Ccircle fill='%23969359' cx='50' cy='400' r='50'/%3E%3Cg fill='%239e9b5e' %3E%3Ccircle cx='0' cy='450' r='50'/%3E%3Ccircle cx='100' cy='450' r='50'/%3E%3C/g%3E%3Ccircle fill='%23a7a463' cx='50' cy='500' r='50'/%3E%3Cg fill='%23afad68' %3E%3Ccircle cx='0' cy='550' r='50'/%3E%3Ccircle cx='100' cy='550' r='50'/%3E%3C/g%3E%3Ccircle fill='%23b8b56d' cx='50' cy='600' r='50'/%3E%3Cg fill='%23c1be73' %3E%3Ccircle cx='0' cy='650' r='50'/%3E%3Ccircle cx='100' cy='650' r='50'/%3E%3C/g%3E%3Ccircle fill='%23c9c778' cx='50' cy='700' r='50'/%3E%3Cg fill='%23d2d07d' %3E%3Ccircle cx='0' cy='750' r='50'/%3E%3Ccircle cx='100' cy='750' r='50'/%3E%3C/g%3E%3Ccircle fill='%23dbda83' cx='50' cy='800' r='50'/%3E%3Cg fill='%23e4e388' %3E%3Ccircle cx='0' cy='850' r='50'/%3E%3Ccircle cx='100' cy='850' r='50'/%3E%3C/g%3E%3Ccircle fill='%23edec8e' cx='50' cy='900' r='50'/%3E%3Cg fill='%23f6f693' %3E%3Ccircle cx='0' cy='950' r='50'/%3E%3Ccircle cx='100' cy='950' r='50'/%3E%3C/g%3E%3Ccircle fill='%23FFFF99' cx='50' cy='1000' r='50'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: contain;
+    @apply bg-background text-foreground font-sans;
+    background-image: 
+      /* Padrão de ondas sutis */
+      radial-gradient(circle at 20% 80%, rgba(165, 180, 200, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(167, 209, 171, 0.1) 0%, transparent 50%),
+      /* Padrão de folhas/plantas aquáticas */
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a7d1ab' fill-opacity='0.08'%3E%3Cpath d='M30 30c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12zm12 0c0-6.627-5.373-12-12-12s-12 5.373-12 12 5.373 12 12 12 12-5.373 12-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      /* Padrão de peixes sutis */
+      url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 Q30,40 40,50 Q30,60 20,50 M25,50 L15,45 M25,50 L15,55' stroke='%235aa9bd' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3Cpath d='M80,30 Q70,20 60,30 Q70,40 80,30 M75,30 L85,25 M75,30 L85,35' stroke='%235aa9bd' stroke-width='0.5' fill='none' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: 100px 100px, 200px 200px, 60px 60px, 100px 100px;
+    background-position: 0 0, 50px 50px, 25px 25px, 75px 75px;
+    animation: gentle-float 20s ease-in-out infinite;
+  }
+  
+  @keyframes gentle-float {
+    0%, 100% {
+      background-position: 0 0, 50px 50px, 25px 25px, 75px 75px;
+    }
+    50% {
+      background-position: 10px 5px, 60px 55px, 30px 20px, 85px 70px;
+    }
   }
 
   @keyframes water-ripple {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(4);
-      opacity: 0;
-    }
+@@ -96,7 +80,7 @@
   }
 
-  @keyframes fishing-line {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(5px) rotate(1deg);
-    }
-  }
-  
   .btn-primary {
-    @apply bg-accent text-white font-semibold px-6 py-3 rounded-md transition-all hover:opacity-90 shadow-lg;
+    @apply bg-accent text-white font-semibold px-6 py-3 rounded-md transition-all hover:opacity-90 shadow-md;
     position: relative;
     overflow: hidden;
   }
-
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
+@@ -108,7 +92,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s;
   }
 
-  .btn-primary:hover::before {
-    left: 100%;
-  }
-  
+@@ -118,7 +102,7 @@
+
   .section-title {
     @apply text-3xl md:text-4xl font-serif font-semibold mb-6 text-center text-primary;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     position: relative;
   }
 
-  .section-title::after {
-    content: '🐟';
-    position: absolute;
-    right: -40px;
+@@ -129,13 +113,18 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.7em;
-    opacity: 0.4;
+    opacity: 0.3;
     animation: fishing-line 3s ease-in-out infinite;
   }
-  
+
   .section-container {
     @apply max-w-7xl mx-auto px-4 py-16 md:py-24;
     position: relative;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    margin: 2rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+
+
+
+
   }
 
   .section-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
+@@ -145,23 +134,25 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(69, 66, 40, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, rgba(90, 169, 189, 0.3), transparent);
   }
-  
+
   /* Elementos adicionais para tema de pescaria e natureza */
   .water-divider {
     height: 35px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%23454228'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%23454228'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%23454228'%3E%3C/path%3E%3C/svg%3E");
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' fill='%235aa9bd'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' fill='%235aa9bd'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' fill='%235aa9bd'%3E%3C/path%3E%3C/svg%3E");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     margin: 2rem 0;
   }
-  
+
   .nature-card {
-    @apply bg-card rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all;
+    @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all;
     border-left: 4px solid hsl(var(--primary));
     position: relative;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(5px);
+
+
   }
 
   .nature-card::before {
-    content: '';
-    position: absolute;
-    top: -2px;
+@@ -171,7 +162,7 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, rgba(69, 66, 40, 0.2), rgba(167, 209, 171, 0.2));
+    background: linear-gradient(45deg, rgba(90, 169, 189, 0.1), rgba(167, 209, 171, 0.1));
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .nature-card:hover::before {
-    opacity: 1;
-  }
-  
+@@ -185,6 +176,7 @@
   .fishing-highlight {
     @apply font-serif italic text-accent;
     position: relative;
-    font-weight: 600;
+
   }
 
   .fishing-highlight::before {
-    content: '🎣';
-    position: absolute;
-    left: -25px;
+@@ -194,7 +186,7 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8em;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   /* Efeito de ondulação para cards */
-  .card-ripple {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .card-ripple::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
+@@ -211,7 +203,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(69, 66, 40, 0.1);
+    background: rgba(90, 169, 189, 0.1);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
   }
-
-  .card-ripple:hover::after {
-    width: 300px;
-    height: 300px;
-  }
-
-  /* Animação flutuante para elementos especiais */
-  .float-element {
-    animation: gentle-float 6s ease-in-out infinite;
-  }
-
-  .float-element:nth-child(2n) {
-    animation-delay: -2s;
-  }
-
+@@ -233,4 +225,13 @@
   .float-element:nth-child(3n) {
     animation-delay: -4s;
   }
-
-  @keyframes gentle-float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-}

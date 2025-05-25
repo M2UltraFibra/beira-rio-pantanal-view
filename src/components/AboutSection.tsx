@@ -2,8 +2,8 @@
 import React from "react";
 
 const AboutSection = () => {
-  return (
-    <section id="about" className="section-container">
+  return ( 
+    <section id="about" className="section-container bg-white">
       <h2 className="section-title">Sobre a Pousada do Inácio</h2>
       
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

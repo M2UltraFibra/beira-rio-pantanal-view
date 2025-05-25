@@ -2,12 +2,12 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-container bg-white py-16 lg:py-24"> {/* Adicionado padding vertical para melhor espaçamento */}
-      <h2 className="section-title text-center mb-12">Sobre a Pousada do Inácio</h2> {/* Centralizado o título e ajustado margem inferior */}
+    <section id="about" className="section-container bg-white py-16 lg:py-24">
+      <h2 className="section-title text-center mb-12">Sobre a Pousada do Inácio</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Ordem dos elementos: texto primeiro no mobile, imagem primeiro no desktop */}
-        <div className="order-1 lg:order-1 space-y-6"> {/* Alterado a ordem para o texto aparecer primeiro no mobile */}
+        <div className="order-1 lg:order-1 space-y-6">
           <p className="text-lg text-muted-foreground leading-relaxed">
             A **Pousada do Inácio** é seu lar longe de casa em **Bonito, MS**. Localizada estrategicamente às margens do **Rio Miranda**, no Distrito Águas do Miranda, oferecemos uma experiência única que combina a emoção da pesca esportiva com o conforto e tranquilidade que você merece.
           </p>
@@ -22,11 +22,11 @@ const AboutSection = () => {
         </div>
 
         {/* Imagem */}
-        <div className="order-2 lg:order-2"> {/* Alterado a ordem para a imagem aparecer depois no mobile */}
+        <div className="order-2 lg:order-2">
           <img
-            src="https://images.unsplash.com/photo-1541742425281-c1d3fc8aff96?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Equipamentos de pesca e rede de descanso em um ambiente à beira do rio" {/* Descrição mais detalhada da imagem para acessibilidade */}
-            className="w-full h-auto rounded-lg shadow-lg object-cover" /* Adicionado object-cover para melhor ajuste da imagem */
+            src="https://images.unsplash.com/photo-1541742425281-c1d3fc8aff96?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVu"
+            alt="Equipamentos de pesca e rede de descanso em um ambiente à beira do rio" // Descrição mais detalhada da imagem para acessibilidade
+            className="w-full h-auto rounded-lg shadow-lg object-cover" // Adicionado object-cover para melhor ajuste da imagem
           />
         </div>
       </div>

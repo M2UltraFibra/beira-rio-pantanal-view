@@ -14,7 +14,7 @@ type AccommodationProps = {
 
 const AccommodationCard = ({ image, title, description, price, features }: AccommodationProps) => {
   return (
-    <Card className="overflow-hidden h-full flex flex-col max-w-md mx-auto">
+    <Card className="overflow-hidden h-full flex flex-col w-full">
       <div className="h-48 overflow-hidden">
         <img 
           src={image} 

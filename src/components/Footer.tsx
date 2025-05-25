@@ -29,7 +29,7 @@ const Footer = () => {
             <img
               src={logoPath}
               alt="Pousadas do Inacio Logo"
-              className="mx-auto w-32 h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] filter brightness-110"
+              className="mx-auto w-64 h-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] filter brightness-110"
             />
           </div>
           

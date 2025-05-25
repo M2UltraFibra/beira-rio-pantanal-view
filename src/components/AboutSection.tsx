@@ -14,9 +14,7 @@ const AboutSection = () => {
               alt="Equipamentos de pesca e rede"
               className="w-full h-auto rounded-lg shadow-lg"
             />
-          </div>
-        </div>
-        
+          </div>        
         <div className="order-1 lg:order-2 space-y-6">
           <p className="text-lg text-muted-foreground leading-relaxed">
             A Pousada do Inácio é seu lar longe de casa em Bonito, MS. Localizada estrategicamente às margens do Rio Miranda, no Distrito Águas do Miranda, oferecemos uma experiência única que combina a emoção da pesca esportiva com o conforto e tranquilidade que você merece.

@@ -18,7 +18,7 @@ const Footer = () => {
             <img
               src={logoPath}
               alt="Pousadas do Inacio Logo"
-              className="mx-auto w-64 h-auto"
+              className="mx-auto w-48 h-auto"
             />
           </div>
           

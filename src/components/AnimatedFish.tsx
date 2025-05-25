@@ -4,95 +4,110 @@ interface FishProps {
   id: number;
   initialX: number;
   initialY: number;
-  sizeFactor: number; // Para variar o tamanho
-  speedFactor: number; // Para variar a velocidade
-  opacity: number; // Para variar a opacidade individual
 }
 
-const Fish = ({ id, initialX, initialY, sizeFactor, speedFactor, opacity: fishOpacity }: FishProps) => {
+const Fish = ({ id, initialX, initialY }: FishProps) => {
   const [position, setPosition] = useState({ x: initialX, y: initialY });
-  const [velocity, setVelocity] = useState({
-    x: (Math.random() - 0.5) * 1.5 * speedFactor, // Ajustado por speedFactor
-    y: (Math.random() - 0.5) * 1.0 * speedFactor, // Ajustado por speedFactor
-  });
+  const [heading, setHeading] = useState(Math.random() * Math.PI * 2); // Direction fish is facing
+  const [targetHeading, setTargetHeading] = useState(0);
+  const [speed, setSpeed] = useState(0.8 + Math.random() * 0.4);
   const animationRef = useRef<number>();
   const lastTimeRef = useRef<number>(0);
-
-  const fishWidth = 50 * sizeFactor;
-  const fishHeight = 30 * sizeFactor; // Ajustado para nova proporção do SVG
 
   useEffect(() => {
     const animate = (currentTime: number) => {
       if (lastTimeRef.current === 0) {
         lastTimeRef.current = currentTime;
-        animationRef.current = requestAnimationFrame(animate);
-        return;
       }
 
-      const deltaTime = Math.min(32, currentTime - lastTimeRef.current) / 16.67; // Normalize to 60fps, com clamp
+      const deltaTime = Math.min((currentTime - lastTimeRef.current) / 16.67, 2);
       lastTimeRef.current = currentTime;
 
       setPosition(prev => {
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
+        const fishWidth = 55;
+        const fishHeight = 40;
+        const avoidanceZone = 120;
+
+        // Calculate current forward direction (where fish is pointing)
+        const forwardX = Math.cos(heading);
+        const forwardY = Math.sin(heading);
+
+        // Check distances to edges in the forward direction
+        const distToLeft = prev.x;
+        const distToRight = screenWidth - prev.x - fishWidth;
+        const distToTop = prev.y;
+        const distToBottom = screenHeight - prev.y - fishHeight;
+
+        let newTargetHeading = targetHeading;
+        let needsNewDirection = false;
+
+        // If approaching edges, calculate escape angle
+        if ((distToLeft < avoidanceZone && forwardX < 0) || 
+            (distToRight < avoidanceZone && forwardX > 0) ||
+            (distToTop < avoidanceZone && forwardY < 0) ||
+            (distToBottom < avoidanceZone && forwardY > 0)) {
+          
+          // Calculate safe direction away from nearest edge
+          let escapeAngle = 0;
+          
+          if (distToLeft < avoidanceZone && forwardX < 0) {
+            // Too close to left, turn right (towards positive X)
+            escapeAngle = Math.random() * Math.PI - Math.PI/2; // -90° to +90°
+          } else if (distToRight < avoidanceZone && forwardX > 0) {
+            // Too close to right, turn left (towards negative X)  
+            escapeAngle = Math.PI/2 + Math.random() * Math.PI; // 90° to 270°
+          } else if (distToTop < avoidanceZone && forwardY < 0) {
+            // Too close to top, turn down (towards positive Y)
+            escapeAngle = Math.random() * Math.PI; // 0° to 180°
+          } else if (distToBottom < avoidanceZone && forwardY > 0) {
+            // Too close to bottom, turn up (towards negative Y)
+            escapeAngle = Math.PI + Math.random() * Math.PI; // 180° to 360°
+          }
+          
+          newTargetHeading = escapeAngle;
+          needsNewDirection = true;
+        }
+
+        // Random course corrections for natural swimming
+        if (!needsNewDirection && Math.random() < 0.004) {
+          const courseChange = (Math.random() - 0.5) * Math.PI * 0.5; // Max 90° change
+          newTargetHeading = heading + courseChange;
+        }
+
+        // Speed variations
+        if (Math.random() < 0.006) {
+          setSpeed(0.6 + Math.random() * 0.8);
+        }
+
+        setTargetHeading(newTargetHeading);
+
+        // Smooth heading adjustment (turn gradually towards target)
+        let headingDiff = newTargetHeading - heading;
         
-        let newVelX = velocity.x;
-        let newVelY = velocity.y;
-
-        const boundaryPadding = 20; // Quão longe da borda começa a virar
-
-        // Comportamento de virada suave nas bordas
-        const turnStrength = 0.05 * speedFactor;
-        if (prev.x < boundaryPadding && newVelX < 0) {
-          newVelX += turnStrength * Math.abs(newVelX) + 0.1 * speedFactor; // Vira mais suavemente
-        } else if (prev.x > screenWidth - fishWidth - boundaryPadding && newVelX > 0) {
-          newVelX -= turnStrength * Math.abs(newVelX) + 0.1 * speedFactor;
-        }
-
-        if (prev.y < boundaryPadding && newVelY < 0) {
-          newVelY += turnStrength * Math.abs(newVelY) + 0.1 * speedFactor;
-        } else if (prev.y > screenHeight - fishHeight - boundaryPadding && newVelY > 0) {
-          newVelY -= turnStrength * Math.abs(newVelY) + 0.1 * speedFactor;
-        }
+        // Always take shortest rotation path
+        while (headingDiff > Math.PI) headingDiff -= 2 * Math.PI;
+        while (headingDiff < -Math.PI) headingDiff += 2 * Math.PI;
         
-        // Comportamento de nado mais sutil - mudanças de direção menos frequentes/intensas
-        if (Math.random() < 0.005) { // Reduzida a frequência
-          newVelX += (Math.random() - 0.5) * 0.15 * speedFactor; // Reduzida a intensidade
-          newVelY += (Math.random() - 0.5) * 0.1 * speedFactor;
-        }
+        // Gradual turning - fish can't turn instantly
+        const turnRate = needsNewDirection ? 0.05 : 0.02;
+        const newHeading = heading + headingDiff * turnRate * deltaTime;
+        setHeading(newHeading);
 
-        // Limite de velocidade
-        const maxSpeed = 1.2 * speedFactor;
-        const currentSpeed = Math.sqrt(newVelX * newVelX + newVelY * newVelY);
-        if (currentSpeed > maxSpeed) {
-          newVelX = (newVelX / currentSpeed) * maxSpeed;
-          newVelY = (newVelY / currentSpeed) * maxSpeed;
-        }
-        
-        // Mínima velocidade para evitar que parem completamente
-        const minSpeed = 0.1 * speedFactor;
-        if (currentSpeed < minSpeed && currentSpeed > 0) { // Evita divisão por zero se já parado
-            newVelX = (newVelX / currentSpeed) * minSpeed;
-            newVelY = (newVelY / currentSpeed) * minSpeed;
-        } else if (currentSpeed === 0 && Math.random() < 0.01) { // Se parado, dá um empurrãozinho
-            newVelX = (Math.random() - 0.5) * minSpeed * 2;
-            newVelY = (Math.random() - 0.5) * minSpeed * 2;
-        }
+        // Move forward in current heading direction
+        const moveSpeed = speed * deltaTime;
+        const velocityX = Math.cos(newHeading) * moveSpeed;
+        const velocityY = Math.sin(newHeading) * moveSpeed;
 
+        // Update position
+        let newX = prev.x + velocityX;
+        let newY = prev.y + velocityY;
 
-        // Arrasto leve
-        newVelX *= 0.995;
-        newVelY *= 0.995;
+        // Safety boundaries (should rarely be needed)
+        newX = Math.max(5, Math.min(screenWidth - fishWidth - 5, newX));
+        newY = Math.max(5, Math.min(screenHeight - fishHeight - 5, newY));
 
-        setVelocity({ x: newVelX, y: newVelY });
-
-        let newX = prev.x + newVelX * deltaTime;
-        let newY = prev.y + newVelY * deltaTime;
-
-        // Garantir que não saiam da tela (como um fallback para a virada suave)
-        newX = Math.max(0, Math.min(screenWidth - fishWidth, newX));
-        newY = Math.max(0, Math.min(screenHeight - fishHeight, newY));
-        
         return { x: newX, y: newY };
       });
 
@@ -105,81 +120,198 @@ const Fish = ({ id, initialX, initialY, sizeFactor, speedFactor, opacity: fishOp
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      lastTimeRef.current = 0; // Resetar para o próximo mount se necessário
     };
-  }, [velocity.x, velocity.y, fishWidth, fishHeight, speedFactor]); // Adicionar dependências relevantes
+  }, [heading, targetHeading, speed]);
 
-  // Ângulo de rotação mais suave e natural
-  const angle = Math.atan2(velocity.y, velocity.x) * (180 / Math.PI);
-  // O flip agora é baseado apenas na direção X da velocidade.
-  // Se velocity.x for positivo, ele nada para a direita (scaleX(1)).
-  // Se velocity.x for negativo, ele nada para a esquerda (scaleX(-1)).
-  const flipX = velocity.x < 0;
+  // Visual representation - fish body always faces movement direction
+  const headingDegrees = (heading * 180) / Math.PI;
 
-  const fishStyle: React.CSSProperties = {
-    position: 'absolute', // Mudado de fixed para absolute dentro do container
-    left: `${position.x}px`,
-    top: `${position.y}px`,
-    width: `${fishWidth}px`,
-    height: `${fishHeight}px`,
-    transform: ` ${flipX ? 'scaleX(-1)' : 'scaleX(1)'} rotate(${angle}deg)`,
-    willChange: 'transform, left, top', // Otimização de performance
-    opacity: fishOpacity, // Opacidade individual
-    // filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1))' // Sombra bem sutil ou remover
+  const fishStyle = {
+    transform: `translate(${position.x}px, ${position.y}px) rotate(${headingDegrees}deg) scaleX(-1)`,
+    filter: 'drop-shadow(0 3px 8px rgba(255, 215, 0, 0.25)) drop-shadow(0 1px 3px rgba(184, 134, 11, 0.4))',
+    transformOrigin: '50% 50%'
   };
 
-  // SVG Simplificado e Monocromático
-  // Usaremos um azul escuro semi-transparente como exemplo
-  // A cor pode ser passada como prop para maior customização
-  const fishColor = "rgba(50, 70, 90, 0.7)"; // Exemplo: Azul acinzentado
+  // Tail swimming animation
+  const tailWave = Math.sin(Date.now() * 0.008 + id * 2) * 3;
+  const finWave = Math.sin(Date.now() * 0.012 + id * 1.5) * 1.5;
 
   return (
-    <div style={fishStyle}>
-      <svg width="100%" height="100%" viewBox="0 0 50 30" fill="none" preserveAspectRatio="xMidYMid meet">
-        <path 
-          d="M50 15C50 15 30 25 20 20C10 15 0 15 0 15C0 15 10 5 20 10C30 5 50 15 50 15Z" 
-          fill={fishColor} 
+    <div 
+      className="fixed pointer-events-none z-10"
+      style={fishStyle}
+    >
+      <svg width="55" height="40" viewBox="0 0 55 40" fill="none">
+        <defs>
+          <linearGradient id={`bodyGradient${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.95" />
+            <stop offset="30%" stopColor="#FFA500" stopOpacity="0.9" />
+            <stop offset="70%" stopColor="#FF8C00" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#DAA520" stopOpacity="0.8" />
+          </linearGradient>
+          
+          <radialGradient id={`highlight${id}`} cx="25%" cy="30%" r="60%">
+            <stop offset="0%" stopColor="#FFFACD" stopOpacity="0.7" />
+            <stop offset="60%" stopColor="#FFD700" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#DAA520" stopOpacity="0" />
+          </radialGradient>
+          
+          <linearGradient id={`finGradient${id}`} x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#FFD700" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#B8860B" stopOpacity="0.65" />
+          </linearGradient>
+
+          <filter id={`glow${id}`} x="-25%" y="-25%" width="150%" height="150%">
+            <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* Body shadow */}
+        <ellipse 
+          cx="23" 
+          cy="21" 
+          rx="15" 
+          ry="8" 
+          fill="#DAA520" 
+          opacity="0.15"
         />
-        {/* Barbatana dorsal sutil */}
-        <path d="M22 10 Q 25 4 28 10" stroke={fishColor} strokeWidth="1" fill="transparent" opacity="0.5"/> 
-        {/* Barbatana caudal (rabo) mais integrada */}
-         <path d="M0 15 Q 5 12 5 8 L 0 8" fill={fishColor} opacity="0.8"/>
-         <path d="M0 15 Q 5 18 5 22 L 0 22" fill={fishColor} opacity="0.8"/>
+        
+        {/* Main body - head pointing right (forward direction) */}
+        <ellipse 
+          cx="22" 
+          cy="20" 
+          rx="15" 
+          ry="8" 
+          fill={`url(#bodyGradient${id})`}
+          stroke="#B8860B" 
+          strokeWidth="0.3"
+          filter={`url(#glow${id})`}
+        />
+        
+        {/* Body highlight */}
+        <ellipse 
+          cx="20" 
+          cy="18" 
+          rx="12" 
+          ry="6" 
+          fill={`url(#highlight${id})`}
+        />
+        
+        {/* Animated tail fin - moves with swimming motion */}
+        <g transform={`translate(0, ${tailWave}) rotate(${tailWave * 0.5} 38 20)`}>
+          <path 
+            d="M38 20L50 12C51 13 51 15 49 17L52 20L49 23C51 25 51 27 50 28L38 20Z" 
+            fill={`url(#finGradient${id})`}
+            stroke="#B8860B" 
+            strokeWidth="0.4"
+            opacity="0.9"
+          />
+        </g>
+        
+        {/* Dorsal fin with subtle animation */}
+        <g transform={`translate(0, ${finWave * 0.5})`}>
+          <path 
+            d="M18 12C18 12 24 7 27 12C25 14 21 14 18 12Z" 
+            fill={`url(#finGradient${id})`}
+            stroke="#B8860B" 
+            strokeWidth="0.3"
+            opacity="0.8"
+          />
+        </g>
+        
+        {/* Ventral fin */}
+        <g transform={`translate(0, ${-finWave * 0.3})`}>
+          <path 
+            d="M18 28C18 28 24 33 27 28C25 26 21 26 18 28Z" 
+            fill={`url(#finGradient${id})`}
+            stroke="#B8860B" 
+            strokeWidth="0.3"
+            opacity="0.8"
+          />
+        </g>
+        
+        {/* Pectoral fins */}
+        <ellipse 
+          cx="15" 
+          cy="25" 
+          rx="4" 
+          ry="2" 
+          fill={`url(#finGradient${id})`}
+          opacity="0.7"
+          transform={`rotate(25 15 25) translate(0, ${finWave * 0.3})`}
+        />
+        
+        {/* Eye - positioned at front (head area) */}
+        <circle cx="12" cy="17" r="2.5" fill="white" stroke="#DAA520" strokeWidth="0.2" />
+        <circle cx="12" cy="17" r="1.8" fill="#2c3e50" />
+        <circle cx="12.6" cy="16.4" r="0.6" fill="white" />
+        <circle cx="11.8" cy="17.3" r="0.2" fill="white" opacity="0.9" />
+        
+        {/* Gill cover */}
+        <path 
+          d="M8 18C8 18 11 16 12 20C11 24 8 22 8 18Z" 
+          fill="#B8860B"
+          opacity="0.5"
+        />
+        
+        {/* Scale pattern */}
+        <g opacity="0.35">
+          <circle cx="16" cy="18" r="0.7" fill="#B8860B" />
+          <circle cx="20" cy="20" r="0.7" fill="#B8860B" />
+          <circle cx="24" cy="19" r="0.7" fill="#B8860B" />
+          <circle cx="22" cy="22" r="0.7" fill="#B8860B" />
+          <circle cx="18" cy="23" r="0.7" fill="#B8860B" />
+        </g>
+        
+        {/* Lateral line */}
+        <path 
+          d="M10 20C10 20 24 19.5 36 20" 
+          stroke="#B8860B" 
+          strokeWidth="0.4" 
+          fill="none" 
+          opacity="0.5"
+        />
+        
+        {/* Mouth */}
+        <ellipse 
+          cx="7" 
+          cy="19" 
+          rx="1.5" 
+          ry="0.8" 
+          fill="#DAA520" 
+          opacity="0.6"
+        />
       </svg>
     </div>
   );
 };
 
-const AnimatedFishBackground = () => {
+const AnimatedFish = () => {
   const [fishes, setFishes] = useState<FishProps[]>([]);
 
   useEffect(() => {
-    const fishCount = 5; // Pode ajustar conforme necessário
+    const fishCount = 3;
     const newFishes = Array.from({ length: fishCount }, (_, i) => {
-      const randomSizeFactor = Math.random() * 0.4 + 0.7; // entre 0.7 e 1.1
-      const randomSpeedFactor = Math.random() * 0.5 + 0.8; // entre 0.8 e 1.3
-      const randomOpacity = Math.random() * 0.3 + 0.4; // entre 0.4 e 0.7
       return {
         id: i,
-        initialX: Math.random() * (window.innerWidth - 100) + 50,
-        initialY: Math.random() * (window.innerHeight - 100) + 50,
-        sizeFactor: randomSizeFactor,
-        speedFactor: randomSpeedFactor,
-        opacity: randomOpacity,
+        initialX: 150 + Math.random() * (window.innerWidth - 400),
+        initialY: 150 + Math.random() * (window.innerHeight - 400)
       };
     });
     setFishes(newFishes);
 
-    // Lidar com redimensionamento da janela
-    // (Pode ser mais complexo, mas para este exemplo, apenas recriamos os peixes
-    //  para evitar que fiquem presos fora da tela em encolhimentos drásticos.
-    //  Uma solução melhor seria reposicioná-los dentro dos novos limites.)
     const handleResize = () => {
-       setFishes(prevFishes => prevFishes.map(fish => ({
+      setFishes(prevFishes => 
+        prevFishes.map(fish => ({
           ...fish,
-          initialX: Math.min(fish.initialX, window.innerWidth - (50 * fish.sizeFactor) - 20), // 50 é a largura base, 20 é padding
-          initialY: Math.min(fish.initialY, window.innerHeight - (30 * fish.sizeFactor) - 20), // 30 é a altura base
-        })));
+          initialX: Math.min(fish.initialX, window.innerWidth - 150),
+          initialY: Math.min(fish.initialY, window.innerHeight - 150)
+        }))
+      );
     };
 
     window.addEventListener('resize', handleResize);
@@ -187,25 +319,17 @@ const AnimatedFishBackground = () => {
   }, []);
 
   return (
-    <div 
-      className="fixed inset-0 pointer-events-none -z-10" // -z-10 para garantir que fique atrás de outros conteúdos
-      style={{ 
-        // opacity: 0.8 // Opacidade geral no container pode ser removida se a opacidade individual for suficiente
-      }}
-    >
+    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ opacity: 0.45 }}>
       {fishes.map(fish => (
-        <Fish
-          key={fish.id}
-          id={fish.id}
-          initialX={fish.initialX}
-          initialY={fish.initialY}
-          sizeFactor={fish.sizeFactor}
-          speedFactor={fish.speedFactor}
-          opacity={fish.opacity}
+        <Fish 
+          key={fish.id} 
+          id={fish.id} 
+          initialX={fish.initialX} 
+          initialY={fish.initialY} 
         />
       ))}
     </div>
   );
 };
 
-export default AnimatedFishBackground;
+export default AnimatedFish;

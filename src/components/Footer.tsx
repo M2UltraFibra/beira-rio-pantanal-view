@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer = () => {
@@ -6,57 +5,51 @@ const Footer = () => {
   const logoPath = `${import.meta.env.BASE_URL}logo.png`;
 
   return (
-    <footer className="py-8 bg-slate-800 text-white">
+    <footer className="py-12 bg-slate-100 text-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          
           <div>
-            <h3 className="text-xl font-semibold mb-4 font-serif text-white">Pousadas do Inacio</h3>
-            <p className="text-gray-300">
+            <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Pousadas do Inácio</h3>
+            <p className="text-gray-600">
               O seu refúgio natural às margens do Rio Miranda, no coração do Pantanal Sul-Mato-Grossense.
             </p>
-            <br/>
-            <img
-              src={logoPath}
-              alt="Pousadas do Inacio Logo"
-              className="mx-auto w-32 h-auto"
-            />
+            <div className="mt-6">
+              <img
+                src={logoPath}
+                alt="Pousadas do Inácio Logo"
+                className="mx-auto w-28 h-auto"
+              />
+            </div>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-semibold mb-4 font-serif text-white">Links Rápidos</h3>
+            <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Links Rápidos</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  Início
-                </a>
-              </li>
-              <li>
-                <a href="#gallery" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  Galeria
-                </a>
-              </li>
-              <li>
-                <a href="#accommodations" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  Acomodações
-                </a>
-              </li>
-              <li>
-                <a href="#activities" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  Atividades
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors font-medium">
-                  Contato
-                </a>
-              </li>
+              {[
+                { name: 'Início', href: '#' },
+                { name: 'Galeria', href: '#gallery' },
+                { name: 'Acomodações', href: '#accommodations' },
+                { name: 'Atividades', href: '#activities' },
+                { name: 'Contato', href: '#contact' }
+              ].map(link => (
+                <li key={link.name}>
+                  <a
+                    href={link.href}
+                    className="text-gray-600 hover:text-slate-900 transition-colors font-medium"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-xl font-semibold mb-4 font-serif text-white">Redes Sociais</h3>
-            <div className="flex space-x-4 mb-6">
-              <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-white transition-colors">
+            <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Redes Sociais</h3>
+            <div className="flex space-x-4">
+              {['Facebook', 'Instagram', 'TikTok', 'YouTube'].map(name => (
+                <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-white transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
                 </svg>
@@ -76,33 +69,14 @@ const Footer = () => {
                   <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                 </svg>
               </a>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-3 font-serif text-white">Selos e Certificações</h4>
-              <div className="flex space-x-4">
-                <img
-                  src="https://zcqryodp.manus.space/images/seals/selo_turismo_responsavel.png"
-                  alt="Selo Turismo Sustentável"
-                  className="h-16 w-auto"
-                />
-                <img
-                  src="https://zcqryodp.manus.space/images/seals/pesca_sustentavel.png"
-                  alt="Selo Pesca Sustentável"
-                  className="h-16 w-auto"
-                />
-              </div>
+              ))}
             </div>
           </div>
+
         </div>
-        
-        <div className="border-t border-gray-600 mt-8 pt-6 text-sm text-center">
-          <p className="text-gray-300">
-            &copy; {currentYear} Pousadas do Inacio. Todos os direitos reservados.
-          </p>
-          <p className="text-gray-300">
-            Desenvolvido por <a href="mailto:meuphilim@gmail.com" className="underline hover:text-white font-medium">Meuphilim</a>
-          </p>
+
+        <div className="mt-12 border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
+          &copy; {currentYear} Pousadas do Inácio. Todos os direitos reservados.
         </div>
       </div>
     </footer>

@@ -24,7 +24,7 @@ const AboutSection = () => {
         {/* Imagem */}
         <div className="order-2 lg:order-2">
           <img
-            src="https://images.unsplash.com/photo-1541742425281-c1d3fc8aff96?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVu"
+            src="/photo-1541742425281-c1d3fc8aff96.avif"
             alt="Equipamentos de pesca e rede de descanso em um ambiente à beira do rio" // Descrição mais detalhada da imagem para acessibilidade
             className="w-full h-auto rounded-lg shadow-lg object-cover" // Adicionado object-cover para melhor ajuste da imagem
           />

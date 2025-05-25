@@ -76,15 +76,35 @@
   }
 
   @keyframes water-ripple {
-@@ -96,7 +80,7 @@
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+    }
   }
 
+  @keyframes fishing-line {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(5px) rotate(1deg);
+    }
+  }
+  
   .btn-primary {
     @apply bg-accent text-white font-semibold px-6 py-3 rounded-md transition-all hover:opacity-90 shadow-md;
     position: relative;
     overflow: hidden;
   }
-@@ -108,7 +92,7 @@
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
@@ -92,40 +112,42 @@
     transition: left 0.5s;
   }
 
-@@ -118,7 +102,7 @@
-
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+  
   .section-title {
     @apply text-3xl md:text-4xl font-serif font-semibold mb-6 text-center text-primary;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     position: relative;
   }
 
-@@ -129,13 +113,18 @@
+  .section-title::after {
+    content: '🐟';
+    position: absolute;
+    right: -40px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.7em;
     opacity: 0.3;
     animation: fishing-line 3s ease-in-out infinite;
   }
-
+  
   .section-container {
     @apply max-w-7xl mx-auto px-4 py-16 md:py-24;
     position: relative;
-
-
-
-
-
   }
 
   .section-container::before {
-@@ -145,23 +134,25 @@
+    content: '';
+    position: absolute;
+    top: 0;
     left: 0;
     right: 0;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(90, 169, 189, 0.3), transparent);
   }
-
+  
   /* Elementos adicionais para tema de pescaria e natureza */
   .water-divider {
     height: 35px;
@@ -135,17 +157,17 @@
     width: 100%;
     margin: 2rem 0;
   }
-
+  
   .nature-card {
     @apply bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all;
     border-left: 4px solid hsl(var(--primary));
     position: relative;
-
-
   }
 
   .nature-card::before {
-@@ -171,7 +162,7 @@
+    content: '';
+    position: absolute;
+    top: -2px;
     left: -2px;
     right: -2px;
     bottom: -2px;
@@ -153,15 +175,22 @@
     border-radius: inherit;
     z-index: -1;
     opacity: 0;
-@@ -185,6 +176,7 @@
+    transition: opacity 0.3s ease;
+  }
+
+  .nature-card:hover::before {
+    opacity: 1;
+  }
+  
   .fishing-highlight {
     @apply font-serif italic text-accent;
     position: relative;
-
   }
 
   .fishing-highlight::before {
-@@ -194,7 +186,7 @@
+    content: '🎣';
+    position: absolute;
+    left: -25px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 0.8em;
@@ -169,7 +198,16 @@
   }
 
   /* Efeito de ondulação para cards */
-@@ -211,7 +203,7 @@
+  .card-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
     width: 0;
     height: 0;
     border-radius: 50%;
@@ -177,7 +215,22 @@
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
   }
-@@ -233,4 +225,13 @@
+
+  .card-ripple:hover::after {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Animação flutuante para elementos especiais */
+  .float-element {
+    animation: gentle-float 6s ease-in-out infinite;
+  }
+
+  .float-element:nth-child(2n) {
+    animation-delay: -2s;
+  }
+
   .float-element:nth-child(3n) {
     animation-delay: -4s;
   }
+}

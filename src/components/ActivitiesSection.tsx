@@ -70,7 +70,7 @@ const ActivitiesSection = () => {
   ];
 
   return (
-    <section id="activities" className="section-container">
+    <section id="activities" className="section-container bg-white">
       <h2 className="section-title">Atividades & Experiências</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-lg">
         Conecte-se ao Pantanal como nunca antes. Seja através da pesca, da natureza ou da cultura local, aqui cada momento é uma descoberta.

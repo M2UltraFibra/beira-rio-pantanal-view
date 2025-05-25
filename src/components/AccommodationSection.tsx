@@ -84,7 +84,7 @@ const AccommodationSection = () => {
   ];
 
   return (
-    <section id="accommodations" className="section-container bg-pousada-green/10">
+    <section id="accommodations" className="section-container bg-white">
       <h2 className="section-title">Nossas Acomodações</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
         Oferecemos opções de hospedagem que unem conforto e contato com a natureza, para que sua estadia seja perfeita.

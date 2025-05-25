@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -48,7 +49,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-container bg-pousada-green/10">
+    <section id="contact" className="section-container bg-white">
       <h2 className="section-title">Entre em Contato</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
         Estamos à disposição para tirar suas dúvidas, receber suas sugestões ou

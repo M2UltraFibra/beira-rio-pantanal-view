@@ -14,7 +14,7 @@ type AccommodationProps = {
 
 const AccommodationCard = ({ image, title, description, price, features }: AccommodationProps) => {
   return (
-    <Card className="overflow-hidden h-full flex flex-col">
+    <Card className="overflow-hidden h-full flex flex-col max-w-md mx-auto">
       <div className="h-48 overflow-hidden">
         <img 
           src={image} 
@@ -90,17 +90,20 @@ const AccommodationSection = () => {
         Oferecemos opções de hospedagem que unem conforto e contato com a natureza, para que sua estadia seja perfeita.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {accommodations.map((accommodation, index) => (
-          <AccommodationCard 
-            key={index}
-            image={accommodation.image}
-            title={accommodation.title}
-            description={accommodation.description}
-            price={accommodation.price}
-            features={accommodation.features}
-          />
-        ))}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+          {accommodations.map((accommodation, index) => (
+            <div key={index} className="flex justify-center">
+              <AccommodationCard 
+                image={accommodation.image}
+                title={accommodation.title}
+                description={accommodation.description}
+                price={accommodation.price}
+                features={accommodation.features}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

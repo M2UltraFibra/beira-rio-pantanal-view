@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import AnimatedFish from "@/components/AnimatedFish";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <FloatingWhatsApp />
+      <AnimatedFish />
     </div>
   );
 };

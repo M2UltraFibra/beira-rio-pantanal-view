@@ -69,6 +69,21 @@ const GallerySection = () => {
       image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFudGFuYWwlMjBicmF6aWx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
       title: "Natureza Exuberante",
       description: "Imersa na natureza preservada do Pantanal, nossa pousada oferece contato direto com um dos biomas mais ricos do mundo. Observe animais silvestres em seu habitat natural e desconecte-se da vida urbana."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZpc2hpbmclMjBsb2RnZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Área de Lazer",
+      description: "Espaços externos planejados para seu descanso e contemplação. Deque com vista para o rio, área para churrascos e espaços de convivência onde você pode relaxar e compartilhar experiências com outros hóspedes."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8cml2ZXIlMjBtb3VudGFpbnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Ambiente Preservado",
+      description: "A pousada está localizada em uma área de preservação ambiental, oferecendo um ambiente único onde a natureza é protagonista. Ideal para quem busca paz, tranquilidade e contato genuíno com o Pantanal."
+    },
+    {
+      image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGZpcmVmbGllc3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60",
+      title: "Noites Mágicas",
+      description: "As noites na pousada são verdadeiramente especiais, com o som da natureza como trilha sonora. Aprecie o céu estrelado do Pantanal, um dos mais limpos do Brasil, longe da poluição luminosa das cidades."
     }
   ];
 

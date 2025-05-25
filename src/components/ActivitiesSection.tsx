@@ -1,6 +1,7 @@
+
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Fish, Anchor, TreeDeciduous, MapPin } from "lucide-react";
+import { Fish, Anchor, Home, MapPin } from "lucide-react";
 
 type ActivityProps = {
   icon: React.ReactNode;
@@ -51,10 +52,10 @@ const ActivitiesSection = () => {
         "https://images.unsplash.com/photo-1599933190257-ade62d308472?auto=format&fit=crop&w=500&q=60"
     },
     {
-      icon: <TreeDeciduous size={24} className="text-pousada-green" />,
-      title: "Trilhas na Natureza",
+      icon: <Home size={24} className="text-pousada-green" />,
+      title: "Ponto de Apoio",
       description:
-        "Descubra trilhas ecológicas perfeitas para observadores de aves e amantes da fauna pantaneira. Um convite à contemplação e ao silêncio da natureza.",
+        "Espaço acolhedor e reservado, pensado especialmente para o descanso dos pescadores. Ideal para refeições tranquilas e momentos de contemplação à beira da natureza.",
       imageUrl:
         "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&w=500&q=60"
     },

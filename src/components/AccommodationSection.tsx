@@ -67,20 +67,6 @@ const AccommodationSection = () => {
       ]
     },
     {
-      image: "https://images.unsplash.com/photo-1609766857041-ed402ea8069a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tJTIwc3VwZXJpb3J8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-      title: "Quarto Superior",
-      description: "Conforto com vista parcial para o rio",
-      price: "R$ 350/diária",
-      features: [
-        "Cama queen size",
-        "Ar-condicionado split",
-        "TV LCD 42\"",
-        "Frigobar",
-        "Banheiro com amenidades",
-        "Varanda"
-      ]
-    },
-    {
       image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aG90ZWwlMjByb29tJTIwbHV4dXJ5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60",
       title: "Suíte Premium",
       description: "O melhor da pousada com vista panorâmica para o Rio Miranda",
@@ -104,7 +90,7 @@ const AccommodationSection = () => {
         Oferecemos opções de hospedagem que unem conforto e contato com a natureza, para que sua estadia seja perfeita.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {accommodations.map((accommodation, index) => (
           <AccommodationCard 
             key={index}

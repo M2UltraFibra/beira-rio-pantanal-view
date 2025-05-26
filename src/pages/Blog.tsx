@@ -368,10 +368,9 @@ const Blog = () => {
                   Garanta sua Pescaria
                 </a>
 
-                <p className="mt-8 text-xl font-medium text-pousada-green">
-                  Águas do Miranda, Bonito-MS - Onde a pesca esportiva encontra
-                  a hospitalidade pantaneira.
-                </p>
+              <p className="text-sm text-muted-foreground">
+                Águas do Miranda, Bonito-MS - Onde a pesca esportiva encontra a hospitalidade pantaneira
+              </p>
               </section>
             </div>
           </div>

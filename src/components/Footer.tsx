@@ -34,13 +34,13 @@ const Footer = () => {
           {/* Terceira coluna - Links Rápidos */}
           <div>
             <h3 className="text-lg font-semibold mb-3 font-serif text-slate-900">Links Rápidos</h3>
-            <ul className="space-y-1.5">
+            <ul className="space-y-0.5">
               {[
                 { name: 'Início', href: '#' },
+                { name: 'Blog', href: '/blog' },
                 { name: 'Galeria', href: '#gallery' },
                 { name: 'Acomodações', href: '#accommodations' },
-                { name: 'Atividades', href: '#activities' },
-                { name: 'Blog', href: '/blog' },
+                { name: 'Atividades', href: '#activities' },                
                 { name: 'Contato', href: '#contact' }
               ].map(link => (
                 <li key={link.name}>

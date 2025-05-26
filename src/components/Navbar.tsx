@@ -1,5 +1,7 @@
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,8 +28,8 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <a
-          href="#"
+        <Link
+          to="/"
           className={`text-xl font-serif font-bold flex items-center ${
             isScrolled ? "text-gray-800" : "text-yellow-400"
           }`}
@@ -38,7 +40,7 @@ const Navbar = () => {
             className="h-10 mr-2 drop-shadow-[0_1px_2px_rgba(255,215,0,0.8)]"
           />
           Pousadas do Inacio
-        </a>
+        </Link>
 
         {/* Mobile Menu Button */}
         <button
@@ -97,24 +99,38 @@ interface NavLinksProps {
 
 const NavLinks = ({ isScrolled, onClick }: NavLinksProps) => {
   const links = [
-    { label: "Início", href: "#" },
+    { label: "Início", to: "/" },
     { label: "Galeria", href: "#gallery" },
     { label: "Acomodações", href: "#accommodations" },
     { label: "Atividades", href: "#activities" },
+    { label: "Blog", to: "/blog" },
     { label: "Contato", href: "#contact" },
   ];
 
   return links.map((link) => (
-    <a
-      key={link.label}
-      href={link.href}
-      className={`font-medium transition-colors hover:text-pousada-brown ${
-        isScrolled ? "text-gray-800" : "text-yellow-400"
-      }`}
-      onClick={onClick}
-    >
-      {link.label}
-    </a>
+    link.to ? (
+      <Link
+        key={link.label}
+        to={link.to}
+        className={`font-medium transition-colors hover:text-pousada-brown ${
+          isScrolled ? "text-gray-800" : "text-yellow-400"
+        }`}
+        onClick={onClick}
+      >
+        {link.label}
+      </Link>
+    ) : (
+      <a
+        key={link.label}
+        href={link.href}
+        className={`font-medium transition-colors hover:text-pousada-brown ${
+          isScrolled ? "text-gray-800" : "text-yellow-400"
+        }`}
+        onClick={onClick}
+      >
+        {link.label}
+      </a>
+    )
   ));
 };
 

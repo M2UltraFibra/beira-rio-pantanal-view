@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -100,14 +99,14 @@ interface NavLinksProps {
 const NavLinks = ({ isScrolled, onClick }: NavLinksProps) => {
   const links = [
     { label: "Início", to: "/" },
+    { label: "Blog", to: "/blog" },
     { label: "Galeria", href: "#gallery" },
     { label: "Acomodações", href: "#accommodations" },
     { label: "Atividades", href: "#activities" },
-    { label: "Blog", to: "/blog" },
     { label: "Contato", href: "#contact" },
   ];
 
-  return links.map((link) => (
+  return links.map((link) =>
     link.to ? (
       <Link
         key={link.label}
@@ -131,7 +130,7 @@ const NavLinks = ({ isScrolled, onClick }: NavLinksProps) => {
         {link.label}
       </a>
     )
-  ));
+  );
 };
 
 export default Navbar;

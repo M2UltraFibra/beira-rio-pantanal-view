@@ -1,8 +1,13 @@
-
 import React from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  
+  // Função para normalizar caminhos e evitar dupla barra
+  const getImagePath = (imageName) => {
+    const baseURL = import.meta.env.BASE_URL || '/';
+    return `${baseURL}${baseURL.endsWith('/') ? '' : '/'}${imageName}`;
+  };
 
   return (
     <footer className="py-12 bg-slate-100 text-gray-800">
@@ -12,7 +17,7 @@ const Footer = () => {
           {/* Primeira coluna - Logo */}
           <div className="flex justify-center md:justify-start">
             <img
-              src="/logo.png"
+              src={getImagePath('logo.png')}
               alt="Pousadas do Inácio Logo"
               className="w-32 h-auto"
             />
@@ -80,17 +85,17 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-3 font-serif text-slate-900">Selos e Certificações</h4>
               <div className="flex space-x-2">
                 <img
-                  src="/selo2.png"
+                  src={getImagePath('selo2.png')}
                   alt="Selo Turismo Sustentável"
                   className="w-12 h-12 object-contain"
                 />
                 <img
-                  src="/selo1.png"
+                  src={getImagePath('selo1.png')}
                   alt="Selo Local Seguro e Saudável"
                   className="w-12 h-12 object-contain"
                 />
                 <img
-                  src="/selo3.png"
+                  src={getImagePath('selo3.png')}
                   alt="Selo Pesca Sustentável"
                   className="w-12 h-12 object-contain"
                 />

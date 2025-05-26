@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 
@@ -22,7 +23,7 @@ const HeroSection = () => {
           Viva a Pesca dos Seus Sonhos
         </h1>
         <p 
-          className="text-lg md:text-2xl max-w-3xl mb-8 animate-fade-in font-sans tracking-wide"
+          className="text-lg md:text-xl max-w-3xl mb-8 animate-fade-in font-sans tracking-wide leading-relaxed"
           style={{ animationDelay: "0.2s" }}
         >
           Experimente dias inesquecíveis às margens do Rio Miranda. Conforto, natureza e emoção no coração do Pantanal.

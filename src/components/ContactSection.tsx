@@ -51,13 +51,13 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-container bg-white">
       <h2 className="section-title">Entre em Contato</h2>
-      <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
+      <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-lg">
         Estamos à disposição para tirar suas dúvidas, receber suas sugestões ou
         agendar sua reserva
       </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <Card className="border-none shadow-md">
+        <Card className="border-none shadow-lg">
           <CardContent className="p-6">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
@@ -122,7 +122,7 @@ const ContactSection = () => {
             <h3 className="text-xl font-semibold mb-2 font-serif">
               Localização
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               Estrada Pantaneira, KM 25
               <br />
               Beira do Rio Miranda
@@ -137,7 +137,7 @@ const ContactSection = () => {
             <h3 className="text-xl font-semibold mb-2 font-serif">
               Contato Direto
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               reservas@pousadabeiramirada.com.br
               <br />
               +55 (67) 99999-9999

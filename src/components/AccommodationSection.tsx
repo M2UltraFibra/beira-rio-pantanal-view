@@ -14,24 +14,24 @@ type AccommodationProps = {
 
 const AccommodationCard = ({ image, title, description, price, features }: AccommodationProps) => {
   return (
-    <Card className="overflow-hidden h-full flex flex-col w-full">
+    <Card className="overflow-hidden h-full flex flex-col w-full border-none shadow-lg group transition-transform hover:scale-[1.02]">
       <div className="h-48 overflow-hidden">
         <img 
           src={image} 
           alt={title} 
-          className="w-full h-full object-cover transition duration-300 hover:scale-105" 
+          className="w-full h-full object-cover transition duration-500 group-hover:scale-110" 
         />
       </div>
-      <CardHeader>
-        <CardTitle className="text-xl font-serif">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
+      <CardHeader className="bg-white pt-5">
+        <CardTitle className="text-lg font-bold font-serif">{title}</CardTitle>
+        <CardDescription className="text-sm text-muted-foreground">{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
         <ul className="space-y-2">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
               <Check className="h-5 w-5 text-pousada-green mr-2 shrink-0" />
-              <span>{feature}</span>
+              <span className="text-sm">{feature}</span>
             </li>
           ))}
         </ul>
@@ -86,7 +86,7 @@ const AccommodationSection = () => {
   return (
     <section id="accommodations" className="section-container bg-white">
       <h2 className="section-title">Nossas Acomodações</h2>
-      <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
+      <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-lg">
         Oferecemos opções de hospedagem que unem conforto e contato com a natureza, para que sua estadia seja perfeita.
       </p>
       

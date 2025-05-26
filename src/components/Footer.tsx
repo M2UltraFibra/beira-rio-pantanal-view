@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="py-10 bg-slate-100 text-gray-800">
+    <footer className="py-6 bg-slate-100 text-gray-800">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           
@@ -19,7 +19,7 @@ const Footer = () => {
             <img
               src={getImagePath('logo.png')}
               alt="Pousadas do Inácio Logo"
-              className="w-full max-w-[140px] h-auto object-contain"
+              className="w-full max-w-[180px] h-auto object-contain"
             />
           </div>
 

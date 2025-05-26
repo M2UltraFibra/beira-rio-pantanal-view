@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           
           {/* Primeira coluna - Logo */}
-          <div className="flex flex-col items-center md:items-start">
+          <div className="flex justify-center items-center">
             <img
               src={getImagePath('logo.png')}
               alt="Pousadas do Inácio Logo"

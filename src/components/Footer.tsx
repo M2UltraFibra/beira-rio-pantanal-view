@@ -3,7 +3,7 @@ import React from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const logoPath = `${import.meta.env.BASE_URL}logo.png`;
+  const imgPath = `${import.meta.env.BASE_URL}`;
 
   return (
     <footer className="py-12 bg-slate-100 text-gray-800">
@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
             <div className="mt-6">
               <img
-                src={logoPath}
+                src="{imgPath}/logo.png"
                 alt="Pousadas do Inácio Logo"
                 className="mx-auto w-28 h-auto"
               />
@@ -75,17 +75,17 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-3 font-serif text-slate-900">Selos e Certificações</h4>
               <div className="flex space-x-4">
                 <img
-                  src="/public/selo2.png"
+                  src="{imgPath}/selo2.png"
                   alt="Selo Turismo Sustentável"
                   className="w-16 h-16 object-contain"
                 />
                 <img
-                  src="/public/selo1.png"
+                  src="{imgPath}/selo1.png"
                   alt="Selo Local Seguro e Saudável"
                   className="w-16 h-16 object-contain"
                 />
                 <img
-                  src="/public/selo3.png"
+                  src="{imgPath}/selo3.png"
                   alt="Selo Pesca Sustentável"
                   className="w-16 h-16 object-contain"
                 />

@@ -3,27 +3,30 @@ import React from 'react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const imgPath = `${import.meta.env.BASE_URL}`;
 
   return (
     <footer className="py-12 bg-slate-100 text-gray-800">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           
+          {/* Primeira coluna - Logo */}
+          <div className="flex justify-center md:justify-start">
+            <img
+              src="/logo.png"
+              alt="Pousadas do Inácio Logo"
+              className="w-32 h-auto"
+            />
+          </div>
+
+          {/* Segunda coluna - Texto descritivo */}
           <div>
             <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Pousadas do Inácio</h3>
             <p className="text-gray-600">
               O seu refúgio natural às margens do Rio Miranda, no coração do Pantanal Sul-Mato-Grossense.
             </p>
-            <div className="mt-6">
-              <img
-                src="{imgPath}/logo.png"
-                alt="Pousadas do Inácio Logo"
-                className="mx-auto w-28 h-auto"
-              />
-            </div>
           </div>
 
+          {/* Terceira coluna - Links Rápidos */}
           <div>
             <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Links Rápidos</h3>
             <ul className="space-y-2">
@@ -32,6 +35,7 @@ const Footer = () => {
                 { name: 'Galeria', href: '#gallery' },
                 { name: 'Acomodações', href: '#accommodations' },
                 { name: 'Atividades', href: '#activities' },
+                { name: 'Blog', href: '/blog' },
                 { name: 'Contato', href: '#contact' }
               ].map(link => (
                 <li key={link.name}>
@@ -46,6 +50,7 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Quarta coluna - Redes Sociais e Selos */}
           <div>
             <h3 className="text-xl font-semibold mb-4 font-serif text-slate-900">Redes Sociais</h3>
             <div className="flex space-x-4 mb-6">
@@ -73,21 +78,21 @@ const Footer = () => {
 
             <div>
               <h4 className="text-lg font-semibold mb-3 font-serif text-slate-900">Selos e Certificações</h4>
-              <div className="flex space-x-4">
+              <div className="flex space-x-2">
                 <img
-                  src="{imgPath}/selo2.png"
+                  src="/selo2.png"
                   alt="Selo Turismo Sustentável"
-                  className="w-16 h-16 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
                 <img
-                  src="{imgPath}/selo1.png"
-                  alt="Selo Local Seguro e Saudável"
-                  className="w-16 h-16 object-contain"
+                  src="/selo1.png"
+                  alt="Selo Local Seguro e Saudável"
+                  className="w-12 h-12 object-contain"
                 />
                 <img
-                  src="{imgPath}/selo3.png"
+                  src="/selo3.png"
                   alt="Selo Pesca Sustentável"
-                  className="w-16 h-16 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
               </div>
             </div>

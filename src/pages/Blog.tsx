@@ -255,16 +255,38 @@ const Blog = () => {
             </p>
 
             <div className="bg-gradient-to-r from-pousada-green/10 to-blue-50 p-8 rounded-lg mt-12 text-center">
-              <h3 className="text-2xl font-bold text-primary mb-4">
-                Pronto para Sua Próxima Grande Pescaria?
-              </h3>
-              <p className="text-lg mb-6">
-                Entre em contato conosco e descubra nossos pacotes exclusivos de <strong>turismo de pesca</strong>. Personalizamos cada experiência para tornar sua estadia inesquecível.
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Águas do Miranda, Bonito-MS - Onde a pesca esportiva encontra a hospitalidade pantaneira
-              </p>
+<section className="mt-16 text-center">
+  <h2 className="text-3xl font-semibold text-gray-800 mb-4">
+    Pronto para Sua Próxima Grande Pescaria?
+  </h2>
+  <p className="text-lg text-gray-600 mb-6">
+    Faça sua reserva conosco e viva a pesca esportiva como nunca antes.
+  </p>
+
+  <a
+    href="https://wa.me/5567992156433?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20pesca%20esportiva%20em%20%C3%81guas%20do%20Miranda."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow transition"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-5 w-5"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M12.004 2.003c-5.52 0-10 4.478-10 9.997 0 1.76.459 3.445 1.329 4.944l-1.39 5.082 5.215-1.366c1.451.804 3.09 1.23 4.846 1.23 5.52 0 9.997-4.478 9.997-9.997s-4.477-9.997-9.997-9.997zm.022 17.998c-1.59 0-3.134-.426-4.486-1.23l-.32-.191-3.098.811.823-3.01-.208-.317c-.808-1.255-1.231-2.696-1.231-4.177 0-4.418 3.584-8.003 8.003-8.003s8.003 3.585 8.003 8.003c.001 4.419-3.584 8.004-8.003 8.004zm4.419-6.067c-.245-.122-1.446-.715-1.67-.797-.223-.082-.386-.122-.548.123-.163.245-.63.797-.772.962-.143.163-.285.183-.53.061-.244-.122-1.03-.379-1.963-1.208-.726-.647-1.215-1.447-1.358-1.691-.143-.245-.015-.377.108-.498.112-.112.244-.285.367-.428.123-.143.163-.244.244-.407.082-.163.041-.306-.02-.428-.061-.122-.548-1.324-.752-1.814-.198-.48-.4-.415-.548-.424l-.468-.008c-.163 0-.428.061-.652.306s-.857.837-.857 2.04c0 1.204.877 2.367 1.002 2.53.122.163 1.728 2.641 4.192 3.702.586.253 1.044.403 1.4.514.588.187 1.122.161 1.545.098.472-.07 1.446-.591 1.65-1.163.203-.571.203-1.061.142-1.163-.061-.102-.223-.163-.468-.285z" />
+    </svg>
+    Fale pelo WhatsApp
+  </a>
+
+  <p className="mt-8 text-xl font-medium text-pousada-green">
+    Águas do Miranda, Bonito-MS - Onde a pesca esportiva encontra a hospitalidade pantaneira.
+  </p>
+</section>
+
             </div>
+            
           </div>
         </div>
       </article>

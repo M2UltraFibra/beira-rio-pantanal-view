@@ -5,14 +5,22 @@ import { ExternalLink, FileText } from "lucide-react";
 
 const FishingLicenseSection = () => {
   return (
-    <section className="section-container bg-white">
+    <section id="fishing-license" className="section-container bg-white">
+      <h2 className="section-title">Carteira de Pesca Esportiva</h2>
+      <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
+        Todo pescador com mais de 18 anos precisa ter a carteira de pesca
+        amadora para praticar a atividade legalmente no Brasil
+      </p>
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        <Card className="bg-gradient-to-br from-blue-600 to-blue-800 text-white border-none shadow-xl">
-          <CardContent className="p-8 text-center">
+        <Card className="border-none shadow-md">
+          <CardContent className="p-6 text-center">
             <div className="mb-6">
-              <FileText size={64} className="mx-auto mb-4 text-white" />
-              <h3 className="text-2xl font-bold mb-2">Documento Obrigatório</h3>
-              <p className="text-blue-100 text-sm">
+              <FileText size={64} className="mx-auto mb-4 text-primary" />
+              <h3 className="text-xl font-semibold mb-2 font-serif">
+                Documento Obrigatório
+              </h3>
+              <p className="text-muted-foreground text-sm">
                 Para pesca esportiva em todo território nacional
               </p>
             </div>
@@ -21,13 +29,13 @@ const FishingLicenseSection = () => {
 
         <div className="space-y-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif font-semibold mb-4 text-primary">
-              Carteira de Pesca Esportiva
-            </h2>
+            <h3 className="text-xl font-semibold mb-2 font-serif">
+              Licença de Pesca
+            </h3>
             <p className="text-muted-foreground mb-4">
-              Todo pescador com mais de 18 anos precisa ter a carteira de pesca
-              amadora para praticar a atividade legalmente no Brasil. A licença
-              é obrigatória tanto para pesca embarcada quanto desembarcada.
+              A licença é obrigatória tanto para pesca embarcada quanto 
+              desembarcada. Todo pescador deve portar o documento durante 
+              a atividade.
             </p>
 
             <p className="text-muted-foreground mb-6">
@@ -37,7 +45,7 @@ const FishingLicenseSection = () => {
           </div>
 
           <Button
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3 rounded-md transition-all shadow-lg inline-flex items-center gap-2"
+            className="btn-primary inline-flex items-center gap-2"
             onClick={() =>
               window.open(
                 "https://www.gov.br/pt-br/servicos/solicitar-licenca-de-pescador-amador",

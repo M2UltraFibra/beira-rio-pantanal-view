@@ -17,7 +17,7 @@ const FishingLicenseSection = () => {
         <Card className="overflow-hidden h-full border-none shadow-lg group transition-transform hover:scale-[1.02]">
           <div className="h-40 overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?auto=format&fit=crop&w=500&q=60"
+              src="https://images.unsplash.com/photo-1583249598754-b7a2f59651fb?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Carteira de pesca esportiva"
               className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
             />

@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const AboutSection = () => {
@@ -7,11 +6,11 @@ const AboutSection = () => {
       <h2 className="section-title">Sobre a Pousada do Inácio</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1 h-full">
           <img
             src="https://images.unsplash.com/photo-1607524191306-7fec3d6b44b6?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Equipamentos de pesca e rede"
-            className="w-full h-auto rounded-lg shadow-lg"
+            className="w-full h-full max-h-[600px] object-cover rounded-lg shadow-lg"
           />
         </div>
 

@@ -7,7 +7,7 @@ import { ExternalLink, FileText } from "lucide-react";
 const FishingLicenseSection = () => {
   return (
     <section id="fishing-license" className="section-container bg-white">
-      <h2 className="section-title">Carteira de Pesca Esportiva</h2>
+      <h2 className="section-title">Carteira de Pesca Esportiva ou Amadora</h2>
       <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto text-lg">
         Todo pescador com mais de 18 anos precisa ter a carteira de pesca
         amadora para praticar a atividade legalmente no Brasil

@@ -8,7 +8,7 @@ const AboutSection = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="order-2 lg:order-1">
           <img
-            src="/public/photo-1541742425281-c1d3fc8aff96.avif"
+            src="https://images.unsplash.com/photo-1541742425281-c1d3fc8aff96?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Equipamentos de pesca e rede"
             className="w-full h-auto rounded-lg shadow-lg"
           />

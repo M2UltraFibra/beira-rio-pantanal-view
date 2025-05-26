@@ -1,12 +1,13 @@
 
 import React from "react";
 import HeroSection from "@/components/HeroSection";
-import GallerySection from "@/components/GallerySection";
 import AboutSection from "@/components/AboutSection";
+import GallerySection from "@/components/GallerySection";
 import AccommodationSection from "@/components/AccommodationSection";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import ContactSection from "@/components/ContactSection";
 import FishingLicenseSection from "@/components/FishingLicenseSection";
+import FishingArticleSection from "@/components/FishingArticleSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
@@ -23,6 +24,7 @@ const Index = () => {
       <ActivitiesSection />
       <ContactSection />
       <FishingLicenseSection />
+      <FishingArticleSection />
       <Footer />
       <FloatingWhatsApp />
       <AnimatedFish />

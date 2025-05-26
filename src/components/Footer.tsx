@@ -75,12 +75,17 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-3 font-serif text-slate-900">Selos e Certificações</h4>
               <div className="flex space-x-4">
                 <img
-                  src="https://zcqryodp.manus.space/images/seals/selo_turismo_responsavel.png"
+                  src="/selo2.png"
                   alt="Selo Turismo Sustentável"
                   className="w-16 h-16 object-contain"
                 />
                 <img
-                  src="https://zcqryodp.manus.space/images/seals/pesca_sustentavel.png"
+                  src="/selo1.png"
+                  alt="Selo Local Seguro e Saudável"
+                  className="w-16 h-16 object-contain"
+                />
+                <img
+                  src="/selo3.png"
                   alt="Selo Pesca Sustentável"
                   className="w-16 h-16 object-contain"
                 />
